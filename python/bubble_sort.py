@@ -1,4 +1,4 @@
-import random
+import random, time
 
 def bubble_sort(numberList):
     """
@@ -16,10 +16,14 @@ def bubble_sort(numberList):
                     numberList[ind], numberList[ind + 1] = numberList[ind + 1], numberList[ind]
                     swap = True
 
-    return numberList
 
 
 randomNumberList = random.sample(xrange(-1000000000, 1000000000), 10000)
 
-print(bubble_sort(randomNumberList) == sorted(randomNumberList))
+start_time = time.time()
+bubble_sort(randomNumberList)
+print("--- %s seconds ---" % (time.time() - start_time)) # 16.8316979408
+
+
+print(randomNumberList == sorted(randomNumberList))
 

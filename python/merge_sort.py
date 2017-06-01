@@ -1,3 +1,5 @@
+import random, time
+
 def merge_sort(numberList):
     if len(numberList) > 1:
         mid = len(numberList) / 2
@@ -21,8 +23,10 @@ def merge_sort(numberList):
                 numberList[ind] = rval
                 r += 1
 
-a = [5,4,1,3,5,8, 0]
+randomNumberList = random.sample(xrange(-1000000000, 1000000000), 10000)
 
-merge_sort(a)
+start_time = time.time()
+merge_sort(randomNumberList)
+print("--- %s seconds ---" % (time.time() - start_time)) # 0.0707468986511
 
-print(a)
+print(randomNumberList == sorted(randomNumberList))
